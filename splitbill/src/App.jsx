@@ -25,10 +25,15 @@ function App() {
   return (
     <div className='flex justify-center'>
       <div className=''>
-          <Cards
-
-
-/>
+          <Cards cardsData={cardsData}
+          setCardsData={setCardsData}
+          addFriend={addFriend}
+          setAddFriend={setAddFriend}
+          name={name} setName={setName}
+          totalBill={totalBill} setTotalBill={setTotalBill}
+          myExpense={myExpense} setMyExpense={setMyExpense}
+          userExpense={userExpense} setUserExpense={setUserExpense}
+          payingBill={payingBill} setPayingBill={setPayingBill}/>
       </div>
     </div>
  )

@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
+import { addFriend } from "addFriend"
+// import { SplitBill } from "./SplitBalance"
 
 
 
-
-export const Cards = ({ cardsData }) => {
+export const Cards = ({ cardsData, setCardsData, addFriend,
+    setAddFriend, name, setName, totalBill, setTotalBill, myExpense, setMyExpense,
+    userExpense, setUserExpense, payingBill, setPayingBill, }) => {
 
     const [SelectSingleUser, setSelectSingleUser] = useState(false)
 
@@ -12,10 +15,29 @@ export const Cards = ({ cardsData }) => {
             <div className="">
                 <div className="">
                     {cardsData.map((singlecard, index) => (
-                        <UserCard />
+                        <UserCard 
+                        singlecard={singlecard}
+              ind={index}
+              cardsData={cardsData}
+              setCardsData={setCardsData}
+              setName={setName}
+              selectSingleUser={selectSingleUser}
+              setSelectSingleUser={setSelectSingleUser}
+              totalBill={totalBill}
+              setTotalBill={setTotalBill}
+              myExpense={myExpense}
+              setMyExpense={setMyExpense}
+              userExpense={userExpense}
+              setUserExpense={setUserExpense}
+              payingBill={payingBill}
+              setPayingBill={setPayingBill} />
                     ))}
 
                 </div>
+
+
+
+
             </div>
         </div>
     )
