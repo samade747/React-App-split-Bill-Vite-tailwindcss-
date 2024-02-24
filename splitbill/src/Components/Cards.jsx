@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { addFriend } from "addFriend"
-// import { SplitBill } from "./SplitBalance"
+import { SplitBill } from "./SplitBalance"
+
 
 
 
@@ -30,21 +31,74 @@ export const Cards = ({ cardsData, setCardsData, addFriend,
               userExpense={userExpense}
               setUserExpense={setUserExpense}
               payingBill={payingBill}
-              setPayingBill={setPayingBill} />
-                    ))}
-
+              setPayingBill={setPayingBill} 
+              />
+              ))}
+              </div>
+              {addFriend &&(
+                <addFriend
+                setAddFriend={setAddFriend}
+                cardsData={cardsData}
+                setCardsData={setAddFriend}
+                name={name}
+                setName={setName}
+                />
+                )}
+        
+                <div
+                  style={{ display: "flex", width: "90%", justifyContent: "flex-end" }}
+                >
+                  <button
+                    onClick={() => setAddFriend(true)}
+                    style={{
+                      padding: "7px 15px",
+                      margin: "10px 0",
+                      backgroundColor: "#fd9e40",
+                      border: "none",
+                      borderRadius: "5px",
+                      fontWeight: "600",
+                      cursor:"pointer"
+                    }}
+                  >
+                    {addFriend ? "Close" : "Add Friend"}
+                  </button>
                 </div>
-
-
-
-
+              </div>
+              <div className="card2">
+                { selectSingleUser &&
+                <SplitBill
+                  name={name}
+                  setName={setName}
+                  cardsData={cardsData}
+                  setCardsData={setCardsData}
+                  selectSingleUser={selectSingleUser}
+                  setSelectSingleUser={setSelectSingleUser}
+                  totalBill={totalBill}
+                  setTotalBill={setTotalBill}
+                  myExpense={myExpense}
+                  setMyExpense={setMyExpense}
+                  userExpense={userExpense}
+                  setUserExpense={setUserExpense}
+                  payingBill={payingBill}
+                  setPayingBill={setPayingBill}
+                />
+        }
+              </div>
             </div>
-        </div>
-    )
+          );
+        };
+        
 
-}
-
-const UserCard = ({  }) => {
+const UserCard = ({
+    singlecard,
+    cardsData,
+    name,
+    setCardsData,
+    setName,
+    selectSingleUser,
+    setSelectSingleUser,
+    myExpense
+  }) => {
     console.log(`checking cardsData ${cardsData}`)
     console.log(`checking index, ${index}`)
 
